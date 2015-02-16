@@ -65,9 +65,9 @@ public class WeatherFragment extends Fragment {
 	            if(json == null){
 	                handler.post(new Runnable(){
 	                    public void run(){
-	                        Toast.makeText(getActivity(), 
+	                        Toast.makeText(getActivity(),
 	                                getActivity().getString(R.string.place_not_found), 
-	                                Toast.LENGTH_LONG).show(); 
+	                                Toast.LENGTH_LONG).show();
 	                    }
 	                });
 	            } else {
@@ -140,6 +140,7 @@ public class WeatherFragment extends Fragment {
 	}
 	
 	public void changeCity(String city){
+        System.out.println(city);
 	    updateWeatherData(city);
 	}
 	

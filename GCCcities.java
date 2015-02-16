@@ -49,9 +49,11 @@ public class GCCcities extends ActionBarActivity {
 				WeatherFragment wf = (WeatherFragment)getSupportFragmentManager()
                         .findFragmentById(R.id.container);
 				wf.changeCity("Dubai");	*/
-				Intent j = new Intent(GCCcities.this, MainActivity.class);
+                Intent j = new Intent(GCCcities.this, Country.class);
+                startActivity(j);
+				/*Intent j = new Intent(GCCcities.this, MainActivity.class);
 				j.putExtra("cityname", "Dubai");
-				 startActivity(j);
+				 startActivity(j);*/
 				
 			}
  

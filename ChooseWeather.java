@@ -2,11 +2,15 @@ package com.redorigami.simpleweather;
 
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import com.redorigami.simpleweather.fragment.CountryFragment;
 
 public class ChooseWeather extends Activity {
 	Button GCCweather;
@@ -23,8 +27,11 @@ public class ChooseWeather extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent k = new Intent(ChooseWeather.this, GCCcities.class);
-		    	startActivity(k);
+				/*Intent k = new Intent(ChooseWeather.this, GCCcities.class);
+		    	startActivity(k);*/
+                Intent j = new Intent(ChooseWeather.this, Country.class);
+                startActivity(j);
+
 				
 			}
  
@@ -37,8 +44,15 @@ public class ChooseWeather extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent j = new Intent(ChooseWeather.this, WeatherActivity.class);
-				 startActivity(j);
+
+                Intent j = new Intent(ChooseWeather.this, WeatherActivity.class);
+                startActivity(j);
+               /* FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                CountryFragment countryFragment = new CountryFragment();
+               fragmentTransaction.add(countryFragment, "this");*/
+
+
 			}
  
 		});
