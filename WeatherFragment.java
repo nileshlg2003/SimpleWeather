@@ -58,26 +58,27 @@ public class WeatherFragment extends Fragment {
 	}
      
 	
-	private void updateWeatherData(final String city){
+	public void updateWeatherData(final String city){
 	    new Thread(){
 	        public void run(){
 	            final JSONObject json = RemoteFetch.getJSON(getActivity(), city);
+                System.out.println("City name is" + city);
 	            if(json == null){
-	                handler.post(new Runnable(){
-	                    public void run(){
-	                        Toast.makeText(getActivity(),
-	                                getActivity().getString(R.string.place_not_found), 
-	                                Toast.LENGTH_LONG).show();
-	                    }
-	                });
-	            } else {
-	                handler.post(new Runnable(){
-	                    public void run(){
-	                        renderWeather(json);
-	                    }
-	                });
-	            }               
-	        }
+                    handler.post(new Runnable(){
+                        public void run(){
+                            /*Toast.makeText(getActivity(),
+                                    getActivity().getString(R.string.place_not_found),
+                                    Toast.LENGTH_LONG).show();*/
+                        }
+                    });
+                } else {
+                    handler.post(new Runnable(){
+                        public void run(){
+                            renderWeather(json);
+                        }
+                    });
+                }
+            }
 	    }.start();
 	}
 	
@@ -140,8 +141,15 @@ public class WeatherFragment extends Fragment {
 	}
 	
 	public void changeCity(String city){
-        System.out.println(city);
-	    updateWeatherData(city);
+        //System.out.println(city);
+        updateWeatherData(city);
+       /* if (city != null) {
+            System.out.println("city name is not null here so calling update wather data" + city);
+            //updateWeatherData(city);
+        }
+        else {
+            System.out.println("city name is null here");
+        }*/
 	}
 	
 }

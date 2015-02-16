@@ -4,6 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -15,6 +18,10 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+import com.redorigami.simpleweather.User;
+import com.redorigami.simpleweather.DBTools;
+
 
 /**
  * Activity which displays a login screen to the user, offering registration as
@@ -25,8 +32,8 @@ public class LoginActivity extends Activity {
 	 * A dummy authentication store containing known user names and passwords.
 	 * TODO: remove after connecting to a real authentication system.
 	 */
-	private static final String[] DUMMY_CREDENTIALS = new String[] {
-			"foo@example.com:hello", "bar@example.com:world" };
+	/*private static final String[] DUMMY_CREDENTIALS = new String[] {
+			"foo@example.com:hello", "bar@example.com:world" };*/
 
 	/**
 	 * The default email to populate the email field with.
@@ -48,6 +55,9 @@ public class LoginActivity extends Activity {
 	private View mLoginFormView;
 	private View mLoginStatusView;
 	private TextView mLoginStatusMessageView;
+    private User myUser;
+
+    //private static Context mContext;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -146,7 +156,8 @@ public class LoginActivity extends Activity {
 			// perform the user login attempt.
 			mLoginStatusMessageView.setText(R.string.login_progress_signing_in);
 			showProgress(true);
-			mAuthTask = new UserLoginTask();
+			//mAuthTask = new UserLoginTask();
+            mAuthTask = new UserLoginTask(mEmail, mPassword, this);
 			mAuthTask.execute((Void) null);
 		}
 	}
@@ -192,54 +203,98 @@ public class LoginActivity extends Activity {
 		}
 	}
 
-	/**
-	 * Represents an asynchronous login/registration task used to authenticate
-	 * the user.
-	 */
-	public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-		@Override
-		protected Boolean doInBackground(Void... params) {
-			// TODO: attempt authentication against a network service.
+	    /**
+     * Represents an asynchronous login/registration task used to authenticate
+     * the user.
+     */
+    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-			try {
-				// Simulate network access.
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				return false;
-			}
+        private final String mEmail;
+        private final String mPassword;
+        private final Context mContext;
 
-			for (String credential : DUMMY_CREDENTIALS) {
-				String[] pieces = credential.split(":");
-				if (pieces[0].equals(mEmail)) {
-					// Account exists, return true if the password matches.
-					return pieces[1].equals(mPassword);
-				}
-			}
+        UserLoginTask(String email, String password, Context context) {
+            mEmail = email;
+            mPassword = password;
+            mContext= context;
+        }
 
-			// TODO: register the new account here.
-			return true;
-		}
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            DBTools dbTools=null;
+            try{
+                dbTools = new DBTools(mContext);
+                myUser = dbTools.getUser(mEmail);
 
-		@Override
-		protected void onPostExecute(final Boolean success) {
-			mAuthTask = null;
-			showProgress(false);
+                if (myUser.userId>0) {
+                    // Account exists, check password.
+                    if (myUser.password.equals(mPassword))
+                        return true;
+                    else
+                        return false;
+                } else {
+                    myUser.password=mPassword;
+                    return true;
+                }
+            } finally{
+                if (dbTools!=null)
+                    dbTools.close();
+            }
+        }
 
-			if (success) {
-				Intent j = new Intent(LoginActivity.this, ChooseWeather.class);
-				 startActivity(j);
-				//finish();
-			} else {
-				mPasswordView
-						.setError(getString(R.string.error_incorrect_password));
-				mPasswordView.requestFocus();
-			}
-		}
+        @Override
+        protected void onPostExecute(final Boolean success) {
+            mAuthTask = null;
+            showProgress(false);
 
-		@Override
-		protected void onCancelled() {
-			mAuthTask = null;
-			showProgress(false);
-		}
-	}
+            if (success) {
+                if (myUser.userId>0){
+                    finish();
+                    Intent myIntent = new Intent(LoginActivity.this,ChooseWeather.class);
+                    LoginActivity.this.startActivity(myIntent);
+                } else {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    DBTools dbTools=null;
+                                    try{
+                                        finish();
+                                        dbTools = new DBTools(mContext);
+                                        myUser=dbTools.insertUser(myUser);
+                                        //Toast myToast = Toast.makeText(mContext,R.string.updatingReport, Toast.LENGTH_SHORT);
+                                        //myToast.show();
+                                        Intent myIntent = new Intent(LoginActivity.this,ChooseWeather.class);
+                                        LoginActivity.this.startActivity(myIntent);
+                                    } finally{
+                                        if (dbTools!=null)
+                                            dbTools.close();
+                                    }
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    mPasswordView.setError(getString(R.string.error_incorrect_password));
+                                    mPasswordView.requestFocus();
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this.mContext);
+                    builder.setMessage(R.string.confirm_registry).setPositiveButton(R.string.yes, dialogClickListener)
+                            .setNegativeButton(R.string.no, dialogClickListener).show();
+                }
+            } else {
+                mPasswordView.setError(getString(R.string.error_incorrect_password));
+                mPasswordView.requestFocus();
+            }
+        }
+
+        @Override
+        protected void onCancelled() {
+            mAuthTask = null;
+            showProgress(false);
+        }
+    }
 }

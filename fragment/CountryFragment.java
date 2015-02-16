@@ -16,6 +16,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.redorigami.simpleweather.CityPreference;
 import com.redorigami.simpleweather.CountryListAdapter;
 import com.redorigami.simpleweather.CountryListItem;
 import com.redorigami.simpleweather.R;
@@ -145,16 +146,101 @@ public class CountryFragment extends Fragment implements AbsListView.OnItemClick
 
 
             mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
-            System.out.println(DummyContent.ITEMS.get(position).content);
+           // System.out.println(DummyContent.ITEMS.get(position).content);
             //FragmentManager fman = getFragmentManager();
+            //String itemPos = DummyContent.ITEMS.get(position).id;
             String city = DummyContent.ITEMS.get(position).content;
-
+            System.out.println("city name is " + city);
             FragmentManager fm = getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             WeatherFragment llf = new WeatherFragment();
-            llf.changeCity(city);
+            llf.changeCity("Muscat");
+            // new CityPreference(this.getActivity()).setCity("Muscat");
+
             ft.replace(R.id.container, llf);
             ft.commit();
+
+            switch(position){
+                case 0: {
+                   /* System.out.println("city name is " + city);
+                    FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    WeatherFragment llf = new WeatherFragment();
+                    llf.changeCity("Muscat");
+                   // new CityPreference(this.getActivity()).setCity("Muscat");
+
+                    ft.replace(R.id.container, llf);
+                    ft.commit();*/
+                    llf.changeCity("Muscat");
+                    //new CityPreference(this.getActivity()).setCity("Muscat");
+
+
+                }
+                case 1: {
+                    /*System.out.println("city name is " + city);
+                    FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    WeatherFragment llf = new WeatherFragment();
+                    llf.changeCity("Dubai");
+                   // new CityPreference(this.getActivity()).setCity("Dubai");
+                    ft.replace(R.id.container, llf);
+                    ft.commit();*/
+                    llf.changeCity("Dubai");
+                    //new CityPreference(this.getActivity()).setCity("Dubai");
+
+                }
+                case 2: {
+                    /*FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    WeatherFragment llf = new WeatherFragment();
+                    llf.changeCity("Manama");
+                    //new CityPreference(this.getActivity()).setCity("Manama");
+                    ft.replace(R.id.container, llf);
+                    ft.commit();*/
+                    llf.changeCity("Manama");
+                    //new CityPreference(this.getActivity()).setCity("Manama");
+
+                }
+                case 3: {
+                    /*FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    WeatherFragment llf = new WeatherFragment();
+                    llf.changeCity("Riyadh");
+                   // new CityPreference(this.getActivity()).setCity("Riyadh");
+                    ft.replace(R.id.container, llf);
+                    ft.commit();*/
+                    llf.changeCity("Riyadh");
+                   // new CityPreference(this.getActivity()).setCity("Riyadh");
+
+                }
+                case 4: {
+                    /*FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    WeatherFragment llf = new WeatherFragment();
+                    llf.changeCity("Doha");
+                    //new CityPreference(this.getActivity()).setCity("Doha");
+                    ft.replace(R.id.container, llf);
+                    ft.commit();*/
+                    llf.changeCity("Doha");
+                    //new CityPreference(this.getActivity()).setCity("Doha");
+
+                }
+                case 5: {
+                    /*FragmentManager fm = getFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    WeatherFragment llf = new WeatherFragment();
+                    llf.changeCity("Kuwait city");
+                    //new CityPreference(this.getActivity()).setCity("Kuwait city");
+                    ft.replace(R.id.container, llf);
+                    ft.commit();*/
+                    llf.changeCity("Kuwait city");
+                   // new CityPreference(this.getActivity()).setCity("Kuwait city");
+
+                }
+
+            }
+
+
             /*WeatherFragment wf = (WeatherFragment)getSupportFragmentManager()
                     .findFragmentById(R.id.container);
             wf.changeCity(DummyContent.ITEMS.get(position).content);*/

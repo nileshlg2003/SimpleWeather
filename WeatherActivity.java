@@ -72,6 +72,7 @@ public class WeatherActivity extends ActionBarActivity {
 	                            .findFragmentById(R.id.container);
 	    wf.changeCity(city);
 	    new CityPreference(this).setCity(city);
+
 	}
 	
 }

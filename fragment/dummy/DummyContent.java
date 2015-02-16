@@ -29,7 +29,7 @@ public class DummyContent {
         addItem(new DummyItem("2", "UAE "));
         addItem(new DummyItem("3", "Bahrin "));
         addItem(new DummyItem("4", "Saudi Arabia"));
-        addItem(new DummyItem("5", "Quatar "));
+        addItem(new DummyItem("5", "Qatar "));
         addItem(new DummyItem("6", "Kuwait "));
     }
 
