@@ -61,7 +61,7 @@ public class Country extends ActionBarActivity implements CountryFragment.OnFrag
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_country2, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_country, container, false);
             return rootView;
         }
     }
