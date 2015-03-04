@@ -1,4 +1,4 @@
-package com.redorigami.simpleweather;
+package com.redorigami.simpleweather.model;
 
 import android.support.v7.app.ActionBarActivity;
 import android.text.InputType;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+
+import com.redorigami.simpleweather.R;
 
 public class WeatherActivity extends ActionBarActivity {
 	

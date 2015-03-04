@@ -1,4 +1,4 @@
-package com.redorigami.simpleweather;
+package com.redorigami.simpleweather.model;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+
+import com.redorigami.simpleweather.R;
 
 public class Cities extends ActionBarActivity {
 

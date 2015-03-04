@@ -11,12 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.redorigami.simpleweather.CountryListAdapter;
-import com.redorigami.simpleweather.CountryListItem;
-import com.redorigami.simpleweather.MainActivity;
+import com.redorigami.simpleweather.model.CountryListAdapter;
+import com.redorigami.simpleweather.model.CountryListItem;
+import com.redorigami.simpleweather.model.MainActivity;
 import com.redorigami.simpleweather.R;
 import com.redorigami.simpleweather.fragment.dummy.DummyContent;
 

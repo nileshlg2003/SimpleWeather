@@ -14,25 +14,15 @@
  * limitations under the License.
  */
 
-package com.redorigami.simpleweather;
+package com.redorigami.simpleweather.model;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
+import com.redorigami.simpleweather.R;
 import com.redorigami.simpleweather.adapter.DailyForecastPageAdapter;
-import com.redorigami.simpleweather.model.Weather;
-import com.redorigami.simpleweather.model.WeatherForecast;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.FragmentActivity;

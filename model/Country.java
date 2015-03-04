@@ -1,7 +1,7 @@
-package com.redorigami.simpleweather;
+package com.redorigami.simpleweather.model;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,8 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.Toast;
 
+import com.redorigami.simpleweather.R;
 import com.redorigami.simpleweather.fragment.CountryFragment;
 
 
@@ -43,9 +44,30 @@ public class Country extends ActionBarActivity implements CountryFragment.OnFrag
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.update) {
+            Toast.makeText(getApplicationContext(),item.getTitle(),Toast.LENGTH_LONG).show();
+            return true;
+        }else if(id == R.id.action_map){
+            Toast.makeText(getApplicationContext(),item.getTitle(),Toast.LENGTH_LONG).show();
+            Intent j = new Intent(Country.this, MapsActivity.class);
+            startActivity(j);
+            return true;
+
+        }else if (id == R.id.action_table){
+            Toast.makeText(getApplicationContext(),item.getTitle(),Toast.LENGTH_LONG).show();
+            return true;
+
+        }else if (id == R.id.action_settings){
+            Toast.makeText(getApplicationContext(),item.getTitle(),Toast.LENGTH_LONG).show();
+            return true;
+
+        }else if(id == R.id.Help){
+            Toast.makeText(getApplicationContext(),item.getTitle(),Toast.LENGTH_LONG).show();
+            //got to help
             return true;
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }

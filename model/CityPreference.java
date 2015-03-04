@@ -1,4 +1,4 @@
-package com.redorigami.simpleweather;
+package com.redorigami.simpleweather.model;
 
 import android.app.Activity;
 import android.content.SharedPreferences;

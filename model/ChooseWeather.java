@@ -1,16 +1,14 @@
-package com.redorigami.simpleweather;
+package com.redorigami.simpleweather.model;
 
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.redorigami.simpleweather.fragment.CountryFragment;
+import com.redorigami.simpleweather.R;
 
 public class ChooseWeather extends Activity {
 	Button GCCweather;

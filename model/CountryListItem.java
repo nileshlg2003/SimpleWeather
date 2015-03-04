@@ -1,4 +1,4 @@
-package com.redorigami.simpleweather;
+package com.redorigami.simpleweather.model;
 
 /**
  * Created by nilesh on 2/10/2015.

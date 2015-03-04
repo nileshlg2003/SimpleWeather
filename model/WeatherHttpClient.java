@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.redorigami.simpleweather;
+package com.redorigami.simpleweather.model;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;

@@ -1,4 +1,4 @@
-package com.redorigami.simpleweather;
+package com.redorigami.simpleweather.model;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -18,9 +18,8 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.redorigami.simpleweather.User;
-import com.redorigami.simpleweather.DBTools;
+
+import com.redorigami.simpleweather.R;
 
 
 /**

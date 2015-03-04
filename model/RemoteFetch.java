@@ -1,4 +1,4 @@
-package com.redorigami.simpleweather;
+package com.redorigami.simpleweather.model;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,7 +9,9 @@ import org.json.JSONObject;
  
 import android.content.Context;
 import android.util.Log;
- 
+
+import com.redorigami.simpleweather.R;
+
 public class RemoteFetch {
  
     private static final String OPEN_WEATHER_MAP_API = 

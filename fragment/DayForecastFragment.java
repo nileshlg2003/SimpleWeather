@@ -16,7 +16,7 @@
 package com.redorigami.simpleweather.fragment;
 
 import com.redorigami.simpleweather.R;
-import com.redorigami.simpleweather.WeatherHttpClient;
+import com.redorigami.simpleweather.model.WeatherHttpClient;
 import com.redorigami.simpleweather.model.DayForecast;
 
 import android.graphics.Bitmap;

@@ -1,4 +1,4 @@
-package com.redorigami.simpleweather;
+package com.redorigami.simpleweather.model;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+import com.redorigami.simpleweather.R;
 import com.redorigami.simpleweather.fragment.CountryFragment;
 
 
