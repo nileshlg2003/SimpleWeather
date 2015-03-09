@@ -56,7 +56,7 @@ public class WeatherActivity extends ActionBarActivity {
 	
 	private void showInputDialog(){
 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-	    builder.setTitle("Change city");
+	    builder.setTitle("Change Capital City");
 	    final EditText input = new EditText(this);
 	    input.setInputType(InputType.TYPE_CLASS_TEXT);
 	    builder.setView(input);

@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.redorigami.simpleweather.R;
 import com.redorigami.simpleweather.fragment.CountryFragment;
+import com.redorigami.simpleweather.settings.WeatherPreferenceActivity;
 
 
 public class Country extends ActionBarActivity implements CountryFragment.OnFragmentInteractionListener {
@@ -59,6 +60,9 @@ public class Country extends ActionBarActivity implements CountryFragment.OnFrag
 
         }else if (id == R.id.action_settings){
             Toast.makeText(getApplicationContext(),item.getTitle(),Toast.LENGTH_LONG).show();
+            Intent i = new Intent();
+            i.setClass(this, WeatherPreferenceActivity.class);
+            startActivity(i);
             return true;
 
         }else if(id == R.id.Help){
