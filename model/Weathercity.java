@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.redorigami.simpleweather.R;
+import com.redorigami.simpleweather.util.WeatherIconMapper;
 import com.survivingwithandroid.weather.lib.WeatherClient;
 import com.survivingwithandroid.weather.lib.WeatherConfig;
 import com.survivingwithandroid.weather.lib.client.volley.WeatherClientDefault;
@@ -113,12 +114,13 @@ public class Weathercity extends ActionBarActivity {
                         rain.setText(currentWeather.weather.rain[0].getTime() + ":" + currentWeather.weather.rain[0].getAmmount());
                     else
                         rain.setText("----");
-                    //pressureStat.setText(currentWeather.weather.currentCondition.getPressureTrend());
-                    //sunrise.setText(WeatherUtil.convertDate(currentWeather.weather.location.getSunrise()));
-                    //sunset.setText(WeatherUtil.convertDate(currentWeather.weather.location.getSunset()));
 
+                    sunrise.setText(com.redorigami.simpleweather.util.WeatherUtil.convertDate(currentWeather.weather.location.getSunrise()));
 
-                    //imgView.setImageResource(WeatherIconMapper.getWeatherResource(currentWeather.weather.currentCondition.getIcon(), currentWeather.weather.currentCondition.getWeatherId()));
+                    sunset.setText(com.redorigami.simpleweather.util.WeatherUtil.convertDate(currentWeather.weather.location.getSunset()));
+
+                    imgView.setImageResource(WeatherIconMapper.getWeatherResource(currentWeather.weather.currentCondition.getIcon(), currentWeather.weather.currentCondition.getWeatherId()));
+
                 }
 
 

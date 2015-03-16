@@ -56,6 +56,7 @@ public class DailyForecastPageAdapter extends FragmentPagerAdapter {
 		Date d = new Date();
 		Calendar gc =  new GregorianCalendar();
 		gc.setTime(d);
+
 		gc.add(GregorianCalendar.DAY_OF_MONTH, position);
 		
 		return sdf.format(gc.getTime());

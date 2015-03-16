@@ -102,11 +102,11 @@ public class MapsActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(23.6100, 58.5400)).title("Muscat"));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(25.2048, 55.2708)).title("Dubai"));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(26.2167, 50.5833)).title("Manama"));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(24.6333, 46.7167)).title("Riyadh"));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(25.2867, 51.5333)).title("Doha"));
-        mMap.addMarker(new MarkerOptions().position(new LatLng(29.3667, 47.9667)).title("Kuwait"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(23.613871, 58.592201)).title("Muscat"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(25.258169, 55.304722)).title("Dubai"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(26.215361, 50.583199)).title("Manama"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(24.687731, 46.721851)).title("Riyadh"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(25.286667, 51.533333)).title("Doha"));
+        mMap.addMarker(new MarkerOptions().position(new LatLng(29.369720, 47.978329)).title("Kuwait"));
     }
 }

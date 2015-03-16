@@ -7,19 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.redorigami.simpleweather.R;
 
 public class ChooseWeather extends Activity {
-	Button GCCweather;
-	Button Worldweather;
+	ImageButton GCCweather;
+	ImageButton Worldweather;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choose_weather);
 				
-		GCCweather = (Button) findViewById(R.id.button1);
+		GCCweather = (ImageButton) findViewById(R.id.imageButton);
 		GCCweather.setOnClickListener(new OnClickListener() { 
 			
 			@Override
@@ -36,7 +37,7 @@ public class ChooseWeather extends Activity {
 		});
 		 
     	
-    	Worldweather = (Button) findViewById(R.id.button2);
+    	Worldweather = (ImageButton) findViewById(R.id.imageButton2);
     	Worldweather.setOnClickListener(new OnClickListener() { 
 			
 			@Override

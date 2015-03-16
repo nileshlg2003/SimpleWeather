@@ -54,10 +54,6 @@ public class Country extends ActionBarActivity implements CountryFragment.OnFrag
             startActivity(j);
             return true;
 
-        }else if (id == R.id.action_table){
-            Toast.makeText(getApplicationContext(),item.getTitle(),Toast.LENGTH_LONG).show();
-            return true;
-
         }else if (id == R.id.action_settings){
             Toast.makeText(getApplicationContext(),item.getTitle(),Toast.LENGTH_LONG).show();
             Intent i = new Intent();
@@ -68,6 +64,9 @@ public class Country extends ActionBarActivity implements CountryFragment.OnFrag
         }else if(id == R.id.Help){
             Toast.makeText(getApplicationContext(),item.getTitle(),Toast.LENGTH_LONG).show();
             //got to help
+            Intent i = new Intent();
+            i.setClass(this, Help.class);
+            startActivity(i);
             return true;
         }
 

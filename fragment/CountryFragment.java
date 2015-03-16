@@ -2,8 +2,11 @@ package com.redorigami.simpleweather.fragment;
 
 import android.app.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,6 +21,9 @@ import com.redorigami.simpleweather.model.CountryListItem;
 import com.redorigami.simpleweather.model.MainActivity;
 import com.redorigami.simpleweather.R;
 import com.redorigami.simpleweather.fragment.dummy.DummyContent;
+import com.redorigami.simpleweather.model.Weath2Activity;
+import com.redorigami.simpleweather.settings.SearchLocationActivity;
+import com.survivingwithandroid.weather.lib.model.City;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -170,41 +176,82 @@ public class CountryFragment extends Fragment implements AbsListView.OnItemClick
 
             switch(position){
                 case 0: {
-                    Intent j = new Intent(getActivity(), MainActivity.class);
-                    j.putExtra("cityname", "Muscat");
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("cityid","287286" );
+                    editor.putString("cityName","Muscat" );
+                    editor.putString("country", "OM");
+                    editor.commit();
+                    Intent j = new Intent(getActivity(), Weath2Activity.class);
                     startActivity(j);
                     break;
                 }
                 case 1: {
-                    Intent j = new Intent(getActivity(), MainActivity.class);
-                    j.putExtra("cityname", "Dubai");
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("cityid","292223" );
+                    editor.putString("cityName","Dubai" );
+                    editor.putString("country", "AE");
+                    editor.commit();
+                    Intent j = new Intent(getActivity(), Weath2Activity.class);
                     startActivity(j);
                     break;
 
                 }
                 case 2: {
-                    Intent j = new Intent(getActivity(), MainActivity.class);
-                    j.putExtra("cityname", "Manama");
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("cityid","290340" );
+                    editor.putString("cityName","Manama" );
+                    editor.putString("country", "BH");
+                    editor.commit();
+                    Intent j = new Intent(getActivity(), Weath2Activity.class);
                     startActivity(j);
+                   /* Intent j = new Intent(getActivity(), MainActivity.class);
+                    j.putExtra("cityname", "Manama");
+                    startActivity(j);*/
                     break;
 
                 }
                 case 3: {
-                    Intent j = new Intent(getActivity(), MainActivity.class);
-                    j.putExtra("cityname", "Riyadh");
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("cityid","108410" );
+                    editor.putString("cityName","Riyadh" );
+                    editor.putString("country", "SA");
+                    editor.commit();
+                    Intent j = new Intent(getActivity(), Weath2Activity.class);
                     startActivity(j);
+                    /*Intent j = new Intent(getActivity(), MainActivity.class);
+                    j.putExtra("cityname", "Riyadh");
+                    startActivity(j);*/
                     break;
                 }
                 case 4: {
-                    Intent j = new Intent(getActivity(), MainActivity.class);
-                    j.putExtra("cityname", "Doha");
+
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("cityid","290030" );
+                    editor.putString("cityName","Doha" );
+                    editor.putString("country", "QA");
+                    editor.commit();
+                    Intent j = new Intent(getActivity(), Weath2Activity.class);
                     startActivity(j);
                     break;
                 }
                 case 5: {
-                    Intent j = new Intent(getActivity(), MainActivity.class);
-                    j.putExtra("cityname", "Kuwait");
+
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("cityid","285787" );
+                    editor.putString("cityName","Kuwait City" );
+                    editor.putString("country", "KW");
+                    editor.commit();
+                    Intent j = new Intent(getActivity(), Weath2Activity.class);
                     startActivity(j);
+                    /*Intent j = new Intent(getActivity(), MainActivity.class);
+                    j.putExtra("cityname", "Kuwait");
+                    startActivity(j);*/
                     break;
                 }
 
